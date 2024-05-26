@@ -1,0 +1,18 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata: 
+  labels: 
+    app.kubernetes.io/instance: fqciw3tau-python
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/name: fqciw3tau-python 
+  name: fqciw3tau-python
+spec:
+  port:
+    targetPort: 8081 
+  tls:
+    insecureEdgeTerminationPolicy: Redirect
+    termination: edge
+  to:
+    kind: Service
+    name: fqciw3tau-python
+    weight: 100 
